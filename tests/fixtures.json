@@ -1,0 +1,330 @@
+{
+  "schema_version": "0.1",
+  "note": "合成案例；用于人工/Agent 评价，CI 只验证数据结构，不运行改写或理解实验",
+  "cases": [
+    {
+      "id": "A01",
+      "category": "A",
+      "audience": "普通读者",
+      "source": "在提交申请后尚未完成身份核验且未撤回申请的用户将收到通知。",
+      "phenomenon": "long-attributive",
+      "expected_behavior": "明确用户、条件和结果，保留“且”的条件关系",
+      "must_not": "不得把“尚未完成”改成“未通过”"
+    },
+    {
+      "id": "A02",
+      "category": "A",
+      "audience": "初学者",
+      "source": "需要管理员批准后才能查看的报表将在夜间更新。",
+      "phenomenon": "distant-dependency",
+      "expected_behavior": "说明“批准—查看”关系，保留“夜间更新”",
+      "must_not": "不得编造更新时刻"
+    },
+    {
+      "id": "A03",
+      "category": "A",
+      "audience": "一般用户",
+      "source": "因维护期间网络不稳定而被暂停的任务会自动恢复。",
+      "phenomenon": "nested-condition",
+      "expected_behavior": "拆开时间条件与结果；“会恢复”不等于已恢复",
+      "must_not": "不得说任务已经恢复"
+    },
+    {
+      "id": "A04",
+      "category": "A",
+      "audience": "普通读者",
+      "source": "公司进行了对申请材料的核验。",
+      "phenomenon": "nominalization",
+      "expected_behavior": "可还原为公司核验申请材料",
+      "must_not": "不得把公司换成用户"
+    },
+    {
+      "id": "A05",
+      "category": "A",
+      "audience": "员工",
+      "source": "审核通过后通知提交人，记录将保留三十天。",
+      "phenomenon": "ambiguous-actor",
+      "expected_behavior": "识别通知的执行主体未明确",
+      "must_not": "不得擅称管理员发送通知"
+    },
+    {
+      "id": "A06",
+      "category": "A",
+      "audience": "一般用户",
+      "source": "只有开启通知时才会收到提醒。",
+      "phenomenon": "no-op",
+      "expected_behavior": "原文条件清楚，应原样保留",
+      "must_not": "不得删掉“只有”"
+    },
+    {
+      "id": "B01",
+      "category": "B",
+      "audience": "非专业用户",
+      "source": "该工具支持多方流程协同管理能力。",
+      "phenomenon": "noun-stack",
+      "expected_behavior": "还原协同管理流程的动作",
+      "must_not": "不能新增审批、工单功能"
+    },
+    {
+      "id": "B02",
+      "category": "B",
+      "audience": "普通读者",
+      "source": "我们将对数据做颗粒度拉齐。",
+      "phenomenon": "rare-collocation",
+      "expected_behavior": "指出“颗粒度拉齐”的具体含义需要原文支持",
+      "must_not": "不能假定这是字段标准化"
+    },
+    {
+      "id": "B03",
+      "category": "B",
+      "audience": "非技术用户",
+      "source": "新增了队列积压监控。",
+      "phenomenon": "term-barrier",
+      "expected_behavior": "术语解释需要来自文档背景",
+      "must_not": "不能自称已有告警和自动扩容"
+    },
+    {
+      "id": "B04",
+      "category": "B",
+      "audience": "一般读者",
+      "source": "张老师把报告交给李老师后，他修改了结论。",
+      "phenomenon": "ambiguous-pronoun",
+      "expected_behavior": "指出“他”的歧义，暂不指定人选",
+      "must_not": "不得猜测修改人"
+    },
+    {
+      "id": "B05",
+      "category": "B",
+      "audience": "开发者",
+      "source": "该服务随后由平台模块完成处理。服务模块会返回结果。",
+      "phenomenon": "term-consistency",
+      "expected_behavior": "核对“服务”和“服务模块”是否同一实体",
+      "must_not": "不能擅自合并不同模块"
+    },
+    {
+      "id": "B06",
+      "category": "B",
+      "audience": "技术读者",
+      "source": "缓存吞掉了那次请求。",
+      "phenomenon": "inanimate-subject",
+      "expected_behavior": "在上下文足够时改为准确机制，否则保持并指出歧义",
+      "must_not": "不能编造请求丢弃的具体机制"
+    },
+    {
+      "id": "C01",
+      "category": "C",
+      "audience": "用户",
+      "source": "本次更新新增搜索、导出、权限控制及失败重试；部分功能暂未开放。",
+      "phenomenon": "information-stack",
+      "expected_behavior": "可拆句，同时保留“部分功能暂未开放”",
+      "must_not": "不得声称全部上线"
+    },
+    {
+      "id": "C02",
+      "category": "C",
+      "audience": "初学者",
+      "source": "数据库连接池可以减少重复建连。现在介绍其超时配置。",
+      "phenomenon": "knowledge-order",
+      "expected_behavior": "在已有概念基础上整理阅读顺序",
+      "must_not": "不能编造连接池参数"
+    },
+    {
+      "id": "C03",
+      "category": "C",
+      "audience": "管理者",
+      "source": "响应更快。成本没有下降。",
+      "phenomenon": "missing-transition",
+      "expected_behavior": "可用“但”连接原文已有转折",
+      "must_not": "不能给出成本不降的原因"
+    },
+    {
+      "id": "C04",
+      "category": "C",
+      "audience": "普通读者",
+      "source": "系统采用 WAL，但材料没有解释 WAL。",
+      "phenomenon": "missing-prerequisite",
+      "expected_behavior": "解释需要可靠材料或用户授权",
+      "must_not": "不能编造 WAL 的具体实现"
+    },
+    {
+      "id": "C05",
+      "category": "C",
+      "audience": "项目成员",
+      "source": "我们有记录。数据将接受复核。然后再发布。",
+      "phenomenon": "flow-density",
+      "expected_behavior": "按现有阶段组织步骤",
+      "must_not": "不得把将来复核改成已复核"
+    },
+    {
+      "id": "C06",
+      "category": "C",
+      "audience": "用户",
+      "source": "操作前先备份。点击删除后数据无法恢复。",
+      "phenomenon": "necessary-reminder",
+      "expected_behavior": "保留安全提醒；不盲目删句",
+      "must_not": "不能省略备份提示"
+    },
+    {
+      "id": "D01",
+      "category": "D",
+      "audience": "客户",
+      "source": "本文先解释所有技术名词，最后才说明产品是做什么的。",
+      "phenomenon": "reader-first-opening",
+      "expected_behavior": "可建议先回答产品用途",
+      "must_not": "不得捏造产品用途"
+    },
+    {
+      "id": "D02",
+      "category": "D",
+      "audience": "新人",
+      "source": "第二章介绍迁移策略，第三章才定义迁移对象。",
+      "phenomenon": "section-order",
+      "expected_behavior": "建议先介绍迁移对象，深度模式需授权",
+      "must_not": "不可未经授权修改目录"
+    },
+    {
+      "id": "D03",
+      "category": "D",
+      "audience": "工程师",
+      "source": "测试结论表明性能提升。",
+      "phenomenon": "missing-evidence",
+      "expected_behavior": "应指出需要测试数据支持",
+      "must_not": "不能编造提升百分比"
+    },
+    {
+      "id": "D04",
+      "category": "D",
+      "audience": "客户",
+      "source": "小节标题：全面赋能。正文：支持 CSV 导出。",
+      "phenomenon": "abstract-heading",
+      "expected_behavior": "建议标题指向 CSV 导出",
+      "must_not": "不得新增其他格式"
+    },
+    {
+      "id": "D05",
+      "category": "D",
+      "audience": "客户",
+      "source": "上段说明申请流程，下段直接谈定价。",
+      "phenomenon": "abrupt-transition",
+      "expected_behavior": "审视主题关系，必要时提出重排建议",
+      "must_not": "不能硬写不存在的因果"
+    },
+    {
+      "id": "D06",
+      "category": "D",
+      "audience": "用户",
+      "source": "首页写支持离线编辑，帮助中心写不支持离线编辑。",
+      "phenomenon": "document-conflict",
+      "expected_behavior": "标记冲突待核对",
+      "must_not": "不能决定哪个版本正确"
+    },
+    {
+      "id": "E01",
+      "category": "E",
+      "audience": "开发者",
+      "source": "出现 HTTP 429 时，读取 Retry-After 响应头。",
+      "phenomenon": "technical-noop",
+      "expected_behavior": "协议术语准确，通常不改",
+      "must_not": "不得改动 429 或头字段"
+    },
+    {
+      "id": "E02",
+      "category": "E",
+      "audience": "开发者",
+      "source": "使用 GET /v1/items?limit=10 获取列表。",
+      "phenomenon": "code-path",
+      "expected_behavior": "自然语言可更顺，但接口路径不能变化",
+      "must_not": "不得改变 URL 参数"
+    },
+    {
+      "id": "E03",
+      "category": "E",
+      "audience": "研究者",
+      "source": "研究结果可能提示两者存在关联。",
+      "phenomenon": "academic-caution",
+      "expected_behavior": "保留“可能”“关联”",
+      "must_not": "不得写成已证实因果"
+    },
+    {
+      "id": "E04",
+      "category": "E",
+      "audience": "普通读者",
+      "source": "患者若持续高烧，应咨询医生。",
+      "phenomenon": "medical-constraint",
+      "expected_behavior": "保留条件和咨询动作",
+      "must_not": "不得补出未提供的药物剂量"
+    },
+    {
+      "id": "E05",
+      "category": "E",
+      "audience": "商务读者",
+      "source": "合同约定交付后十个工作日内付款。",
+      "phenomenon": "legal-constraint",
+      "expected_behavior": "保留十个工作日及起算条件",
+      "must_not": "不得改成十天或自然日"
+    },
+    {
+      "id": "E06",
+      "category": "E",
+      "audience": "文学读者",
+      "source": "此山不语，风自知。",
+      "phenomenon": "literary-noop",
+      "expected_behavior": "作者有意的隐喻可以保留",
+      "must_not": "不要强制解释诗句"
+    },
+    {
+      "id": "F01",
+      "category": "F",
+      "audience": "一般读者",
+      "source": "张三向李四说明他的任务延期了。",
+      "phenomenon": "ambiguous-owner",
+      "expected_behavior": "“他的”归属不明，不能猜测",
+      "must_not": "不得指定张三的任务延期"
+    },
+    {
+      "id": "F02",
+      "category": "F",
+      "audience": "用户",
+      "source": "先保存文件，再关闭窗口。未保存的修改会丢失。",
+      "phenomenon": "clear-noop",
+      "expected_behavior": "无理解障碍，原样保留",
+      "must_not": "不强行加入形容词"
+    },
+    {
+      "id": "F03",
+      "category": "F",
+      "audience": "客户",
+      "source": "计划在 2027 年 3 月上线，目前仍在测试。",
+      "phenomenon": "future-caution",
+      "expected_behavior": "保留计划时间与未完成状态",
+      "must_not": "不得说已经上线"
+    },
+    {
+      "id": "F04",
+      "category": "F",
+      "audience": "开发者",
+      "source": "接口响应：{\"ok\":false,\"retry\":3}",
+      "phenomenon": "structured-data",
+      "expected_behavior": "代码/JSON 默认不改",
+      "must_not": "不得改变 true/false 或数字"
+    },
+    {
+      "id": "F05",
+      "category": "F",
+      "audience": "决策者",
+      "source": "资料提到两种方案，但未说明各自成本。",
+      "phenomenon": "missing-info",
+      "expected_behavior": "指出成本资料不足",
+      "must_not": "不能编造任何报价"
+    },
+    {
+      "id": "F06",
+      "category": "F",
+      "audience": "客户",
+      "source": "该产品仅在受邀企业中提供试用。",
+      "phenomenon": "scope-noop",
+      "expected_behavior": "保留试用范围；清楚时不改",
+      "must_not": "不得说人人可试用"
+    }
+  ]
+}
